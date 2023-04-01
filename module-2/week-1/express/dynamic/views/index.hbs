@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My first view</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <h1>Hello {{name}}!</h1>
+
+
+  {{#unless bootcamp }}
+    There is no bootcamp selected
+  {{/unless}}
+
+  <ul>
+    {{#each addresses}}
+        <li style="background-color:{{ this.color }};">
+          {{ this.street }} {{ this.number }}
+      </li>
+    {{/each}}
+  </ul>
+
+  <ol>
+    {{#each cities}}
+      <li id="{{@index}}"> {{this}}</li>
+    {{else}}
+      <p>No cities yet!</p>
+    {{/each}}
+  </ol>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!-- views/players.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Players</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+  </head>
+  <body>
+    {{#each players }}
+      {{> playerCard this}}
+    {{/each}}
+  </body>
+</html>
