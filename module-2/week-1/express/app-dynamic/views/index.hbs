@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Hello my name is miguel {{name}}!</h1>
+  {{#if bootcamp}}
+    <h2>I work at {{bootcamp}}</h2>
+  {{/if}}
+
+  <h3>I have lived in:</h3>
+  <ul>
+    {{#each cities}}
+      <li>{{this}}</li>
+    {{else}}
+      <p>No cities yet!</p>
+    {{/each}}
+  </ul>
+
+</body>
+</html>
