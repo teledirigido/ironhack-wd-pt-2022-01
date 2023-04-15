@@ -1,0 +1,34 @@
+<h1>Create a new Book</h1>
+
+<style>
+form {
+  max-width: 500px;
+  margin:0 auto;
+}
+label {
+  display:flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+</style>
+
+<form action="/books/create" method="post">
+  <label> Title:
+    <input type="text" name="title" required />
+  </label>
+
+  <label> Author:
+    <input type="text" name="author" required />
+  </label>
+
+  <label> Description:
+    <textarea name="description" cols="30" rows="4"> </textarea>
+  </label>
+
+  <label> Rate:
+    <input type="number" name="rating" min="1" max="10" />
+  </label>
+
+  <button type="submit"> Create </button>
+</form>
+

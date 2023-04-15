@@ -1,0 +1,38 @@
+<h1>Editing Book: {{ book.title }}</h1>
+
+<style>
+  form {
+    max-width: 500px;
+    margin:0 auto;
+  }
+  label {
+    display:flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+</style>
+
+<form action="/books/edit" method="post">
+
+  <input type="hidden" name="id" value="{{ book.id }}">
+
+  <label> Title:
+    <input type="text" name="title" value="{{ book.title }}" required />
+  </label>
+
+  <label> Author:
+    <input type="text" name="author" value="{{ book.author }}" required />
+  </label>
+
+  <label> Description:
+    <textarea name="description" cols="30" rows="4">
+      {{ book.description }}
+    </textarea>
+  </label>
+
+  <label> Rate:
+    <input type="number" name="rating" min="1" max="10" value="{{ book.rating }}" />
+  </label>
+
+  <button type="submit"> Update </button>
+</form>
