@@ -18,3 +18,7 @@ https://en.bem.info/methodology/css/
 
 ## What is OOCSSS?
 https://www.keycdn.com/blog/oocss
+
+
+## CSS Reference
+https://tympanus.net/codrops/css_reference/
