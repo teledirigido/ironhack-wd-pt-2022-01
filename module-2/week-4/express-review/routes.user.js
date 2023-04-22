@@ -7,6 +7,10 @@ router.get('/user/register', (request, response) => {
   response.render('user/page-register');
 });
 
+router.get('/user/login', (requser, response) => {
+  response.render('user/page-login')
+})
+
 router.post('/user/register', (request, response) => {
   const { email, password } = request.body;
   User.create({

@@ -1,3 +1,26 @@
+html, body {
+  margin:0;
+  padding:0;
+}
 body {
   font-family: sans-serif;
+}
+
+header {
+  background:blue;
+}
+nav ul {
+  display:flex;
+  list-style:none;
+  gap: 2rem;
+  padding:1rem;
+  margin:0;
+}
+
+nav ul li a {
+  color:white;
+}
+
+main {
+  padding:1rem;
 }
