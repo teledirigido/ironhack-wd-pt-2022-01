@@ -5,7 +5,8 @@ require('./db'); // Busca db.js en la carpeta existente
 
 const express = require('express'); // Busca express dentro de node_modules
 const app = express();
-
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /**
  * Handlebar configuration
