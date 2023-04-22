@@ -1,0 +1,21 @@
+{
+  "name": "express-review",
+  "version": "1.0.0",
+  "description": "A brief npm project reviewing our class",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,hbs,html,css"
+  },
+  "author": "miguel.garrido@ironhack.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22"
+  }
+}

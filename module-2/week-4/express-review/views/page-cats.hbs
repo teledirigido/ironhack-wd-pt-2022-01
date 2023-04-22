@@ -1,0 +1,9 @@
+<h1>My favourite cats</h1>
+
+{{#each data }}
+  <p>
+    <a href="/cats/{{ this.id }}">
+      {{ this.name }}
+    </a>
+  </p>
+{{/each}}
