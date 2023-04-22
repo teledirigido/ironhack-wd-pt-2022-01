@@ -5,6 +5,10 @@ require('./db'); // Busca db.js en la carpeta existente
 
 const express = require('express'); // Busca express dentro de node_modules
 const app = express();
+
+/**
+ * Body parser makes body content available on a POST request
+ */
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -25,7 +29,9 @@ app.use(express.static('./public'));
  * Llamando rutas externas
  **/
 const indexRoutes = require("./routes.index");
+const userRoutes = require("./routes.user");
 app.use("/", indexRoutes);
+app.use("/", userRoutes);
 
 app.listen(3000, () => {
   console.log('My first app listening on port 3000! ')

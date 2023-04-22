@@ -40,9 +40,11 @@ router.get('/cats/new', (request, response) => {
 });
 
 router.post('/cats/new', (request, response) => {
-  // const formData = request.params;
+  const catData = request.body;
   console.log('Attempting to create a new cat with POST /cats/new');
-  console.log(request.body);
+  Cat.create(catData).then( () => {
+    response.redirect('/cats');
+  });
 });
 
 router.get('/cats/:catID', (request, response) => {
