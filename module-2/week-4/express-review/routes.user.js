@@ -68,7 +68,7 @@ router.post("/user/register", (req, res) => {
       } else if (error.code === 11000) {
         res.status(500).render("user/page-register", {
           errorMessage:
-            "Username and email need to be unique. Provide a valid username or email.",
+            "This email is already registered.",
         });
       } else {
         next(error);
