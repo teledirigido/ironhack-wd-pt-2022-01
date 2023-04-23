@@ -1,7 +1,12 @@
+// App
 const express = require('express');
 const router = express.Router();
 
+// Models
 const Cat = require('./models/Cat');
+
+// Middlewares
+const { isLoggedIn } = require('./middleware/routeGuards');
 
 /**
  * param1 : Es la ruta o URL
@@ -19,7 +24,7 @@ router.get('/home', (request, response) => {
   response.send('<h1>Welcome Ironhacker. :)</h1>');
 });
 
-router.get('/profile', (request, response) => {
+router.get('/profile', isLoggedIn, (request, response) => {
   const data = {
     email: 'miguel@ironhack.com',
     favourite_color: 'cyan'
@@ -28,7 +33,7 @@ router.get('/profile', (request, response) => {
   response.render('page-profile', { data, flag });
 });
 
-router.get('/cats', (request, response) => {
+router.get('/cats', isLoggedIn, (request, response) => {
   Cat.find()
     .then( (data) => {
       response.render('page-cats', { data });

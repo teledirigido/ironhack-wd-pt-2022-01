@@ -3,6 +3,10 @@
  */
 require('./db'); // Busca db.js en la carpeta existente
 
+// ℹ️ MongoStore in order to save the user session in the database
+// https://www.npmjs.com/package/connect-mongo
+const MongoStore = require("connect-mongo");
+const session = require("express-session");
 const express = require('express'); // Busca express dentro de node_modules
 const app = express();
 
@@ -11,6 +15,21 @@ const app = express();
  */
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
+
+/**
+ * Session
+ */
+// ℹ️ Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "super hyper secret key",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: 'mongodb://127.0.0.1:27017/express-review',
+    }),
+  })
+);
 
 /**
  * Handlebar configuration

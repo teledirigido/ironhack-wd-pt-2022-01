@@ -10,10 +10,15 @@
   <header>
     <nav>
       <ul>
-        <li><a href="/user/register">Register</a></li>
         <li><a href="/profile">Profile</a></li>
         <li><a href="/cats">Cats</a></li>
-        <li><a href="/cats/new">Add new cat</a></li>
+        {{#unless user}}
+          <li><a href="/user/register">Register</a></li>
+          <li><a href="/user/login">Login</a></li>
+        {{else}}
+          <li><a href="/cats/new">Add new cat</a></li>
+          <li><a href="/user/logout">Logout</a></li>
+        {{/unless}}
       </ul>
     </nav>
   </header>

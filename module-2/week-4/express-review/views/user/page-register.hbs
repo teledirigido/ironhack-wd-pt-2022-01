@@ -1,10 +1,17 @@
 <h1>Register new User</h1>
+
+{{#if errorMessage }}
+  <div class="message message--error">
+    {{ errorMessage }}
+  </div>
+{{/if}}
+
 <form action="/user/register" method="POST">
   <p>
     <input type="email" name="email" placeholder="Email">
   </p>
   <p>
-    <input type="text" name="password" placeholder="Password">
+    <input type="password" name="password" placeholder="Password">
   </p>
   <p>
     <button type="submit">Register</button>

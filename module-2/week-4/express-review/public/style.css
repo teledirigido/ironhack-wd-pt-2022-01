@@ -24,3 +24,12 @@ nav ul li a {
 main {
   padding:1rem;
 }
+
+.message {
+  padding:1rem;
+}
+
+.message--error {
+  background:red;
+  color:white;
+}
