@@ -1,0 +1,23 @@
+<h1>Editing {{data.name}}</h1>
+
+<form action="/cats/{{data.id}}/edit" method="POST">
+  <input type="hidden" value="{{data.id}}" name="id">
+  <p>
+    <label for="name">Name:</label>
+    <input type="text" placeholder="Name" name="name" value="{{data.name}}">
+  </p>
+  <p>
+    <label for="name">Age:</label>
+    <input type="text" placeholder="Age" name="age" value="{{data.age}}">
+  </p>
+  <p>
+    <label for="name">Color:</label>
+    <input type="text" placeholder="Color" name="color" value="{{data.color}}">
+  </p>
+  <p>
+    <button type="submit">Save changes</button>
+  </p>
+</form>
+
+<hr>
+<a href="/cats/{{data.id}}">Cancel</a>

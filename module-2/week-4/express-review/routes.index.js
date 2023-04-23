@@ -46,19 +46,58 @@ router.get('/cats/new', (request, response) => {
 
 router.post('/cats/new', (request, response) => {
   const catData = request.body;
-  console.log('Attempting to create a new cat with POST /cats/new');
   Cat.create(catData).then( () => {
     response.redirect('/cats');
   });
 });
 
-router.get('/cats/:catID', (request, response) => {
+
+router.get('/cats/:catID', isLoggedIn, (request, response) => {
+  const { catID } = request.params;
+  /**
+   * Optional: We read the "message" variable exists and
+   * is stored stored under session
+   */
+  const message = request.session.message;
+  delete request.session.message;
+
+  Cat.findById(catID)
+    .then( (data) => {
+      /**
+       * data and message are both passed to the template /views/single-cats.hbs
+       */
+      response.render('single-cats', { data, message });
+    });
+});
+
+router.get('/cats/:catID/edit', isLoggedIn, (request, response) => {
   const { catID } = request.params;
   Cat.findById(catID)
     .then( (data) => {
-      response.render('single-cats', { data });
+      /**
+       * Optional: We set a new variable "message" under request.session
+       * which will be used later as a notification message
+       */
+      request.session.message = {
+        type: 'success',
+        body: 'Your changes has been saved'
+      };
+      response.render('single-cats-edit', { data });
       // Render del archivo
     });
+});
+
+router.post('/cats/:catID/edit', isLoggedIn, (request, response) => {
+  const { id, name, age, color } = request.body;
+
+  Cat.findByIdAndUpdate(id, {
+    name: name,
+    age: age,
+    color: color
+  }, { returnOriginal: false }).then( (data) => {
+    request.session.successMessage = 'Document updated successfully';
+    response.redirect(`/cats/${data.id}`);
+  })
 });
 
 

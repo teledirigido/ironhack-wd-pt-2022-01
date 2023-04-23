@@ -33,3 +33,8 @@ main {
   background:red;
   color:white;
 }
+
+.message--success {
+  background:green;
+  color:white;
+}

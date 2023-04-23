@@ -1,8 +1,6 @@
 const isLoggedIn = (req, res, next) => {
   if (req.session.currentUser) {
     res.locals.user = req.session.currentUser;
-  } else {
-    res.redirect('/user/login');
   }
   next();
 };
