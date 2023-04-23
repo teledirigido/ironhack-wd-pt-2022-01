@@ -74,14 +74,6 @@ router.get('/cats/:catID/edit', isLoggedIn, (request, response) => {
   const { catID } = request.params;
   Cat.findById(catID)
     .then( (data) => {
-      /**
-       * Optional: We set a new variable "message" under request.session
-       * which will be used later as a notification message
-       */
-      request.session.message = {
-        type: 'success',
-        body: 'Your changes has been saved'
-      };
       response.render('single-cats-edit', { data });
       // Render del archivo
     });
@@ -95,7 +87,14 @@ router.post('/cats/:catID/edit', isLoggedIn, (request, response) => {
     age: age,
     color: color
   }, { returnOriginal: false }).then( (data) => {
-    request.session.successMessage = 'Document updated successfully';
+    /**
+     * Optional: We set a new variable "message" under request.session
+     * which will be used later as a notification message
+     */
+    request.session.message = {
+      type: 'success',
+      body: 'Your changes has been saved'
+    };
     response.redirect(`/cats/${data.id}`);
   })
 });

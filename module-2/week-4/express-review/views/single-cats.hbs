@@ -7,7 +7,9 @@
 
 <h2>Age: {{ data.age }}</h2>
 <h3>Color: {{ data.color }}</h3>
-{{#if user}}
 <hr>
-  <a href="/cats/{{ data.id }}/edit">Edit</a>
-{{/if}}
+  {{#if user}}
+    <a href="/cats/{{ data.id }}/edit">Edit</a> |
+  {{/if}}
+  <a href="/cats">See all</a>
+
