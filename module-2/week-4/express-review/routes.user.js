@@ -12,12 +12,12 @@ const User = require('./models/User');
 // Middlewares
 const { isLoggedIn } = require('./middleware/routeGuards');
 
-router.get('/user/register', (request, response) => {
-  response.render('user/page-register');
+router.get('/user/index', (request, response) => {
+  response.render('user/index');
 });
 
-router.get('/user/login', (request, response) => {
-  response.render('user/page-login');
+router.get('/user/index', (request, response) => {
+  response.render('user/index');
 });
 
 router.get("/user/logout", (req, res) => {
@@ -35,7 +35,7 @@ router.post("/user/register", (req, res) => {
 
   // Check that username, email, and password are provided
   if (email === "" || password === "") {
-    res.status(400).render("user/page-register", {
+    res.status(400).render("user/p", {
       errorMessage:
         "All fields are mandatory. Please provide your username, email and password.",
     });
