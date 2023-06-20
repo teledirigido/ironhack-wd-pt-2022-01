@@ -1,0 +1,24 @@
+.App {
+  max-width:550px;
+  margin:0 auto;
+}
+nav {
+  padding:2rem 0 0;
+}
+.form-full {
+  max-width:300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2rem;
+  border:2px solid #CCC;
+}
+.form-full input {
+  margin:0;
+}
+.form-inline input {
+  margin:0;
+}
+.actions {
+  display:flex;
+  justify-content: space-between;
+}
